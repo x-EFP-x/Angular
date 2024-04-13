@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Mi proyecto en angular 17</h1>
+  <h2>{{welcome}}</h2>
+  <ul>
+    <li *ngFor="let task of tasks()">
+      {{task}}
+    </li>
+  </ul>
+  <hr />
+  <h2>{{'Hola'.repeat(4)}}</h2>
+  <p>La suma de 3+3 es {{ 3 + 3 }}</p>
+  <p>Hola, mi nombre es {{name()}} y mi edad es {{age}}</p>
+  <hr />
+  <input type="text" [value]="name()" [disabled]="disabled">
+  <!-- para hacer que las propiedades de html interactuen con variables, se usan los corchetes -->
+  <p>person: {{person.name()}}</p>
+  <button (click)="clickHandler()">Haz click</button>
+  <button (dblclick)="clickHandler()">Haz click doble</button>
+  <p>(change)</p>
+  <input type="number" [value]="person.age" (change)="inputHandler($event)">
+  <p>(KeyDown)</p>
+  <input type="number" [value]="person.age" (keydown)="keyDownHandler($event)">
+  <p>shift t</p>
+  <input type="number" [value]="person.age" (keydown.shift.t)="clickHandler()">
+  <hr />
+  <h1>Signals</h1>
+  <input type="text" [value]="name()" (change)="inputHandler($event)">
+  <p>Nombre: {{ name() }}</p>
+  <h1>Nueva sintaxis</h1>
+  <ul>
+    <p>total: {{tasks().length}}</p>
+    <li *ngFor="let task of tasks(); index as i">
+      {{i}} {{task}}
+    </li>
+  </ul>
+</div>
